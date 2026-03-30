@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "IntelliStream",
-    "base_url": "https://intellistream.github.io/",
+    "base_url": "https://lab.sage.org.ai/",
     "base_path": "/",
     "trailing_slash": false,
     "favicon": "/images/favicon.png",
@@ -25,7 +25,7 @@
   "params": {
     "contact_form_action": "/api/contact",
     "tag_manager_id": "",
-    "footer_content": "IntelliStream organization portal. SAGE product/docs entry is https://sage.org.ai/.",
+    "footer_content": "IntelliStream organization portal (lab.sage.org.ai). SAGE product/docs entry is https://sage.org.ai/.",
     "copyright": "Designed and Developed By [Shuhao Zhang](https://shuhaozhangtony.github.io/), thanks to [Themefisher](https://themefisher.com/)."
   },
 
