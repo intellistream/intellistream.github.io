@@ -25,7 +25,7 @@
   "params": {
     "contact_form_action": "/api/contact",
     "tag_manager_id": "",
-    "footer_content": "IntelliStream Lab @ HUST",
+    "footer_content": "IntelliStream organization portal. SAGE product/docs entry is https://sage.org.ai/.",
     "copyright": "Designed and Developed By [Shuhao Zhang](https://shuhaozhangtony.github.io/), thanks to [Themefisher](https://themefisher.com/)."
   },
 

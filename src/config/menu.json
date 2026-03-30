@@ -1,8 +1,12 @@
 {
   "main": [
     {
-      "name": "Home",
-      "url": "/"
+      "name": "SAGE",
+      "url": "https://sage.org.ai/"
+    },
+    {
+      "name": "GitHub",
+      "url": "https://github.com/intellistream"
     },
     {
       "name": "Publications",
@@ -11,28 +15,36 @@
     {
       "name": "Contact",
       "url": "/contact"
-    },
-    {
-      "name": "FAQ",
-      "url": "/faq"
     }
   ],
   "footer": [
     {
-      "name": "Team",
+      "name": "Entry Points",
       "menu": [
         {
-          "text": "Leader",
-          "url": "https://shuhaozhangtony.github.io/"
+          "text": "SAGE (Product + Docs)",
+          "url": "https://sage.org.ai/"
+        },
+        {
+          "text": "IntelliStream Portal",
+          "url": "https://intellistream.github.io/"
+        },
+        {
+          "text": "GitHub Organization",
+          "url": "https://github.com/intellistream"
         }
       ]
     },
     {
-      "name": "Product",
+      "name": "Research",
       "menu": [
         {
-          "text": "Features",
-          "url": "/"
+          "text": "Publications",
+          "url": "/pub"
+        },
+        {
+          "text": "Blog",
+          "url": "/blog"
         }
       ]
     },
