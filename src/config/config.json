@@ -18,8 +18,8 @@
 
   "nav_button": {
     "enable": true,
-    "label": "Get Started",
-    "link": "https://intellistream.github.io/SAGE-Pub/"
+    "label": "Open SAGE",
+    "link": "https://sage.org.ai/"
   },
 
   "params": {

@@ -1,111 +1,65 @@
 ---
-import { Image } from "astro:assets";
 import Base from "@/layouts/Base.astro";
-import Cta from "@/layouts/components/Cta.astro";
-import { markdownify } from "@/lib/utils/textConverter";
-import { getEntry } from "astro:content";
-import type { CollectionEntry } from "astro:content";
-
-const homepage = (await getEntry(
-  "homepage",
-  "-index"
-)) as CollectionEntry<"homepage">;
-const { banner, feature, services, workflow, call_to_action } = homepage.data;
+const targetUrl = "https://sage.org.ai/";
 ---
 
-<Base>
-  <!-- banner -->
-  <section class="section pb-[50px]">
+<Base
+  title="IntelliStream"
+  meta_title="IntelliStream | Redirecting to SAGE"
+  description="IntelliStream homepage now forwards SAGE visitors to the canonical SAGE product and documentation site."
+  canonical={targetUrl}
+  noindex={true}
+>
+  <section class="section pb-10 pt-24">
     <div class="container">
-      <div class="row text-center">
-        <div class="mx-auto lg:col-10">
-          <h1 class="font-primary font-bold">{banner?.title}</h1>
-          {banner?.subtitle && (
-            <p class="mt-2 text-xl text-gray-600">{banner.subtitle}</p>
-          )}
+      <div class="mx-auto max-w-4xl rounded-3xl border border-gray-200 bg-white px-8 py-16 text-center shadow-lg">
+        <p class="mb-4 inline-flex rounded-full bg-blue-50 px-4 py-1 text-sm font-semibold text-blue-700">
+          Unified entry point
+        </p>
+        <h1 class="font-primary text-4xl font-bold md:text-5xl">
+          IntelliStream 的 SAGE 入口已统一到 sage.org.ai
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-lg text-gray-600">
+          为减少首页分散与重复信息，SAGE 的产品介绍、安装入口和公开文档现在统一使用
+          <a class="font-semibold text-blue-700 underline" href={targetUrl}>sage.org.ai</a>
+          作为唯一主入口。
+        </p>
 
-          {
-            banner?.content && (
-              <p class="mt-4" set:html={markdownify(banner.content)} />
-            )
-          }
-
-          {
-            banner?.button?.enable && (
-              <a class="btn btn-primary mt-4" href={banner.button.link}>
-                {banner.button.label}
-              </a>
-            )
-          }
-
-          {
-            banner?.image && (
-              <Image
-                class="mx-auto mt-12"
-                src={banner?.image}
-                width={750}
-                height={390}
-                alt="banner image"
-              />
-            )
-          }
+        <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <a class="btn btn-primary" href={targetUrl}>进入 SAGE</a>
+          <a class="btn btn-outline-primary" href="https://github.com/intellistream">查看 GitHub 组织</a>
         </div>
+
+        <div class="mt-10 grid gap-4 text-left md:grid-cols-3">
+          <div class="rounded-2xl bg-slate-50 p-5">
+            <p class="mb-2 text-sm font-semibold uppercase tracking-wide text-slate-500">Product</p>
+            <p class="font-semibold">sage.org.ai</p>
+            <p class="mt-2 text-sm text-slate-600">SAGE 官方产品首页与文档主入口。</p>
+          </div>
+          <div class="rounded-2xl bg-slate-50 p-5">
+            <p class="mb-2 text-sm font-semibold uppercase tracking-wide text-slate-500">Organization</p>
+            <p class="font-semibold">intellistream.github.io</p>
+            <p class="mt-2 text-sm text-slate-600">组织域名保留为轻量入口页，避免再承担重复产品首页职责。</p>
+          </div>
+          <div class="rounded-2xl bg-slate-50 p-5">
+            <p class="mb-2 text-sm font-semibold uppercase tracking-wide text-slate-500">Code</p>
+            <p class="font-semibold">github.com/intellistream</p>
+            <p class="mt-2 text-sm text-slate-600">源码、仓库、Issue、PR 与发布协作入口。</p>
+          </div>
+        </div>
+
+        <p class="mt-8 text-sm text-gray-500">页面将在 1.5 秒后自动跳转。如果没有跳转，请点击上方按钮。</p>
       </div>
     </div>
   </section>
-
-  <!-- Features -->
-  <section class="section bg-light">
-    <div class="container">
-      <div class="text-center">
-        <h2>{markdownify(feature.title)}</h2>
-      </div>
-      <div class="mt-8 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
-        {
-          feature.features.map((item) => (
-            <div class="feature-card rounded-xl bg-white p-5 pb-8 text-center">
-              {item.icon && (
-                <Image
-                  class="mx-auto"
-                  alt={item.icon}
-                  src={item.icon}
-                  width={30}
-                  height={30}
-                />
-              )}
-              <div class="mt-4">
-                <p class="h5" set:html={markdownify(item.name)} />
-                <p class="mt-3">{item.content}</p>
-              </div>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <!-- Call to Action -->
-  <Cta cta={call_to_action} />
 </Base>
 
-<script>
-  import { Swiper } from "swiper";
-  import "swiper/css";
-  import "swiper/css/pagination";
-  import { Autoplay, Pagination } from "swiper/modules";
-
-  // astro:page-load event is fired when the page is loaded
-  document.addEventListener("astro:page-load", () => {
-    new Swiper(".service-carousel .swiper", {
-      modules: [Pagination, Autoplay],
-      // autoplay: {
-      //   delay: 3000,
-      // },
-      pagination: {
-        type: "bullets",
-        el: ".service-carousel .pagination",
-        clickable: true,
-      },
-    });
-  });
+<script is:inline>
+  window.setTimeout(() => {
+    window.location.replace("https://sage.org.ai/");
+  }, 1500);
 </script>
+
+<noscript>
+  <meta http-equiv="refresh" content="0; url=https://sage.org.ai/" />
+</noscript>

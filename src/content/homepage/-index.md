@@ -37,7 +37,7 @@ feature:
 # call_to_action
 call_to_action:
   title: 加入我们，一起打造 Spark for LLMs
-  content: 欲了解完整设计与应用案例，请获取[详细文档](https://intellistream.github.io/SAGE-Pub/)。
+  content: 欲了解完整设计与应用案例，请访问 [SAGE 官方入口](https://sage.org.ai/)。
   image: "/images/cta.png"
   button:
     enable: true
