@@ -1,21 +1,144 @@
 ---
-const targetUrl = "https://sage.org.ai/";
+import Base from "@/layouts/Base.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import type { CollectionEntry } from "astro:content";
+import { getEntry } from "astro:content";
+
+const entry = (await getEntry("homepage", "-index")) as CollectionEntry<"homepage">;
+const { banner, feature, call_to_action } = entry.data;
+
+const entryPoints = [
+  {
+    title: "SAGE",
+    href: "https://sage.org.ai/",
+    description: "产品首页与文档主入口，适合安装、学习和查阅 API/指南。",
+  },
+  {
+    title: "GitHub Organization",
+    href: "https://github.com/intellistream",
+    description: "代码仓库、Issue、PR、发布与日常协作入口。",
+  },
+  {
+    title: "Contact",
+    href: "/contact",
+    description: "研究合作、项目咨询、学生交流与团队联系入口。",
+  },
+];
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Redirecting to SAGE</title>
-    <meta name="robots" content="noindex,nofollow" />
-    <meta http-equiv="refresh" content={`0; url=${targetUrl}`} />
-    <link rel="canonical" href={targetUrl} />
-    <script is:inline>
-      window.location.replace(targetUrl);
-    </script>
-  </head>
-  <body>
-    <p>Redirecting to <a href={targetUrl}>{targetUrl}</a>...</p>
-  </body>
-</html>
+<Base
+  title="IntelliStream | Team Portal"
+  description="IntelliStream team and research portal for projects, publications, and collaboration."
+>
+  <section class="section pb-0">
+    <div class="container">
+      <div class="row items-center">
+        <div class="col-12 lg:col-7">
+          {banner?.subtitle && (
+            <p class="mb-3 font-semibold uppercase tracking-wide text-primary">
+              {banner.subtitle}
+            </p>
+          )}
+          {banner?.title && <h1 class="mb-6" set:html={markdownify(banner.title)} />}
+          {banner?.content && (
+            <p class="mb-8 text-lg" set:html={markdownify(banner.content)} />
+          )}
+          <div class="flex flex-wrap gap-4">
+            {banner?.button?.enable && (
+              <a class="btn btn-primary" href={banner.button.link}>
+                {banner.button.label}
+              </a>
+            )}
+            <a class="btn btn-secondary" href="https://github.com/intellistream">
+              View GitHub
+            </a>
+          </div>
+        </div>
+        {banner?.image && (
+          <div class="col-12 mt-10 lg:col-5 lg:mt-0">
+            <img
+              src={banner.image}
+              alt="IntelliStream overview"
+              class="mx-auto w-full max-w-[480px]"
+            />
+          </div>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="mb-4" set:html={markdownify(feature.title)} />
+      </div>
+      <div class="row mt-8">
+        {feature.features.map((item) => (
+          <div class="col-12 mb-6 md:col-6 xl:col-4">
+            <div class="feature-card card h-full">
+              {item.icon && (
+                <img src={item.icon} alt="" class="mb-5 h-12 w-12" />
+              )}
+              <h3 class="h4 mb-3">{item.name}</h3>
+              {item.content && <p class="mb-0">{item.content}</p>}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-light">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="mb-4">How To Navigate IntelliStream</h2>
+        <p class="mx-auto max-w-[760px]">
+          `lab.sage.org.ai` is the team portal. Use the routes below to move between product docs,
+          code, and collaboration channels without relying on a forced redirect.
+        </p>
+      </div>
+      <div class="row mt-8">
+        {entryPoints.map((item) => (
+          <div class="col-12 mb-6 md:col-4">
+            <div class="card h-full">
+              <h3 class="h4 mb-3">{item.title}</h3>
+              <p>{item.description}</p>
+              <a class="btn btn-secondary mt-4" href={item.href}>
+                Open
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {call_to_action && (
+    <section class="section">
+      <div class="container">
+        <div class="row items-center">
+          <div class="col-12 lg:col-7">
+            {call_to_action.title && (
+              <h2 class="mb-4" set:html={markdownify(call_to_action.title)} />
+            )}
+            {call_to_action.content && (
+              <div class="content mb-6" set:html={markdownify(call_to_action.content)} />
+            )}
+            {call_to_action.button?.enable && (
+              <a class="btn btn-primary" href={call_to_action.button.link}>
+                {call_to_action.button.label}
+              </a>
+            )}
+          </div>
+          <div class="col-12 mt-10 lg:col-5 lg:mt-0">
+            <img
+              src={call_to_action.image}
+              alt="IntelliStream collaboration"
+              class="mx-auto w-full max-w-[420px]"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+</Base>

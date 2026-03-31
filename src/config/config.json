@@ -10,25 +10,21 @@
     "logo_height": "58",
     "logo_text": "IntelliStream"
   },
-
   "settings": {
     "pagination": 4,
     "summary_length": 200
   },
-
   "nav_button": {
     "enable": true,
     "label": "Open SAGE",
     "link": "https://sage.org.ai/"
   },
-
   "params": {
     "contact_form_action": "/api/contact",
     "tag_manager_id": "",
-    "footer_content": "IntelliStream organization portal (lab.sage.org.ai). SAGE product/docs entry is https://sage.org.ai/.",
+    "footer_content": "IntelliStream team and research portal at lab.sage.org.ai. For SAGE product/docs, visit https://sage.org.ai/.",
     "copyright": "Designed and Developed By [Shuhao Zhang](https://shuhaozhangtony.github.io/), thanks to [Themefisher](https://themefisher.com/)."
   },
-
   "metadata": {
     "meta_author": "IntelliStream",
     "meta_image": "/images/logo.png",

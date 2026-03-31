@@ -1,43 +1,43 @@
 ---
 banner:
   enable: true
-  title: "SAGE 框架"
-  subtitle: "Streaming-Augmented Generative Execution"
-  content: "构建下一代分布式大模型推理应用基础编程与运行时框架"
-  image: "/images/framework.png"            # hero 背景图（自行替换）
-#  button:
-#    enable: true
-#    label: "快速了解"
-#    link: "#overview"
+  title: "IntelliStream Research Group"
+  subtitle: "Team Portal"
+  content: "`lab.sage.org.ai` 用于展示 IntelliStream 团队信息、研究方向、公开成果与协作入口。若你要使用 SAGE 产品或查看文档，请前往 [sage.org.ai](https://sage.org.ai/)。"
+  image: "/images/banner-art.png"
+  button:
+    enable: true
+    label: "View Publications"
+    link: "/pub"
 
 # feature
 feature:
-  title: 六大核心特性
+  title: 我们关注什么
   features:
-    - name: "结构化推理表达"
+    - name: "流处理与数据系统"
       icon: "/images/code.svg"
-      content: "替代 prompt 堆叠与手写逻辑，统一描述推理依赖关系"
-    - name: "可编程记忆管理"
+      content: "围绕流式计算、状态管理与数据基础设施展开系统研究与工程实现。"
+    - name: "推理系统与运行时"
       icon: "/images/oop.svg"
-      content: "多格式图/KV/向量 Memory，持久、可清理、可回退"
-    - name: "路由与条件调度"
+      content: "关注 LLM inference runtime、serving、调度与系统级优化。"
+    - name: "SAGE 主线框架"
       icon: "/images/user-clock.svg"
-      content: "显式 if/while/switch，分支可观测、可调试"
-    - name: "执行效率优化"
+      content: "SAGE 是团队当前的核心框架，用于承载 stream-first 的推理系统能力。"
+    - name: "Benchmarks 与评测"
       icon: "/images/speedometer.svg"
-      content: "Streaming、Caching、GPU VectorOps，避免重复推理"
-    - name: "可观测与复用"
+      content: "同时建设面向 ToolUse、RAG、Refiner、数据库与近似计算的评测基准。"
+    - name: "开放协作"
       icon: "/images/code.svg"
-      content: "DAG 追踪、重放与差分执行，黑盒推理变可控"
-    - name: "云计算服务"
+      content: "通过 GitHub profile、Issue、PR 与文档站公开协作，保持项目入口清晰。"
+    - name: "学生培养与合作"
       icon: "/images/cloud.svg"
-      content: "我们提供云服务化，进一步优化部署流程"
+      content: "欢迎研究合作、工程合作、开源贡献与学生交流。"
 
 
 # call_to_action
 call_to_action:
-  title: 加入我们，一起打造 Spark for LLMs
-  content: 欲了解完整设计与应用案例，请访问 [SAGE 官方入口](https://sage.org.ai/)。
+  title: 从这里进入合适的入口
+  content: "查看产品文档与安装指南，请访问 [SAGE 官方入口](https://sage.org.ai/)。查看仓库、Issue、PR 与发布，请访问 [GitHub Organization](https://github.com/intellistream)。如果希望联系团队，请直接进入 [Contact 页面](/contact)。"
   image: "/images/cta.png"
   button:
     enable: true
