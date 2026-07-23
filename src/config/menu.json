@@ -15,7 +15,7 @@
         },
         {
           "name": "vLLM-HUST",
-          "url": "https://github.com/vllm-hust"
+          "url": "https://vllm-hust.sage.org.ai/"
         }
       ]
     },
@@ -46,7 +46,7 @@
         },
         {
           "text": "vLLM-HUST (Runtime + Hardware)",
-          "url": "https://github.com/vllm-hust"
+          "url": "https://vllm-hust.sage.org.ai/"
         },
         {
           "text": "IntelliStream Incubator",

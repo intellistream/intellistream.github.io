@@ -3,7 +3,7 @@ banner:
   enable: true
   title: "IntelliStream"
   subtitle: "Research Incubator"
-  content: "IntelliStream 孵化跨越智能应用、演化数据基础设施与模型执行的早期系统研究。边界、维护者、文档、测试与发布流程稳定后，项目毕业到 [SAGE](https://sage.org.ai/)、[DataSys](https://datasys.sage.org.ai/) 或 [vLLM-HUST](https://github.com/vllm-hust)。"
+  content: "IntelliStream 孵化跨越智能应用、演化数据基础设施与模型执行的早期系统研究。边界、维护者、文档、测试与发布流程稳定后，项目毕业到 [SAGE](https://sage.org.ai/)、[DataSys](https://datasys.sage.org.ai/) 或 [vLLM-HUST](https://vllm-hust.sage.org.ai/)。"
   image: "/images/banner-art.png"
   button:
     enable: true
@@ -37,7 +37,7 @@ feature:
 # call_to_action
 call_to_action:
   title: 在正确的层继续工作
-  content: "Agent、RAG 与服务编排请进入 [SAGE](https://sage.org.ai/)；流、图、向量与索引系统请进入 [DataSys](https://datasys.sage.org.ai/)；模型运行时与硬件执行请进入 [vLLM-HUST](https://github.com/vllm-hust)。仍在形成边界的研究项目保留在 [IntelliStream GitHub](https://github.com/intellistream)。"
+  content: "Agent、RAG 与服务编排请进入 [SAGE](https://sage.org.ai/)；流、图、向量与索引系统请进入 [DataSys](https://datasys.sage.org.ai/)；模型运行时与硬件执行请进入 [vLLM-HUST](https://vllm-hust.sage.org.ai/)。仍在形成边界的研究项目保留在 [IntelliStream GitHub](https://github.com/intellistream)。"
   image: "/images/cta.png"
   button:
     enable: true
