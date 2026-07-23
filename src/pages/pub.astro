@@ -1,71 +1,111 @@
 ---
 import Base from "@/layouts/Base.astro";
-import { markdownify } from "@/lib/utils/textConverter";
 import type { CollectionEntry } from "astro:content";
 import { getEntry } from "astro:content";
 
-const entry = await getEntry(
-  "publications",
-  "-index"
-) as CollectionEntry<"publications">;
-
-const { title, description, publications } = entry.data;
-
-// 只保留带 year 字段的条目，按 year 降序，取前 10 条
-const recent = publications
-  .filter(p => typeof p.year === "number")
-  .sort((a, b) => b.year - a.year)
-  .slice(0, 10);
-
-// 学术主页链接
-const scholarUrl = "https://shuhaozhangtony.github.io/";
+const entry = await getEntry("publications", "-index") as CollectionEntry<"publications">;
+const publications = [...entry.data.publications].sort((a, b) => b.year - a.year);
+const years = [...new Set(publications.map((publication) => publication.year))];
 ---
-<Base title={title} description={description}>
-  <section class="section">
+<Base title="Graduated Publications" description="Published work from projects graduated through the IntelliStream incubator">
+  <section class="publication-page section">
     <div class="container">
-      <h1 class="text-center font-normal" set:html={markdownify(title)} />
+      <header class="publication-hero">
+        <div>
+          <span data-en="INCUBATOR OUTPUT" data-zh="孵化成果">孵化成果</span>
+          <h1 data-en="Graduated Publications" data-zh="毕业项目发表成果">毕业项目发表成果</h1>
+          <p data-en="Formally published work from projects that matured in IntelliStream and graduated to DataSys or SAGE." data-zh="在 IntelliStream 中成熟并毕业至 DataSys 或 SAGE 项目的正式发表成果。">在 IntelliStream 中成熟并毕业至 DataSys 或 SAGE 项目的正式发表成果。</p>
+        </div>
+        <button id="publication-language-toggle" type="button" aria-label="Switch to English">EN</button>
+      </header>
 
-      <ul class="mt-8 space-y-6">
-        {recent.map(item => (
-          <li class="border-b pb-4">
-            {/* Title */}
-            <h3 class="text-lg font-semibold">
-              <a
-                href={item.link || "#"}
-                target="_blank"
-                rel="noopener"
-                class="hover:underline"
-              >
-                {item.name}
-              </a>
-            </h3>
-            {/* Authors */}
-            <p class="text-sm text-gray-600 mt-1">
-              {item.authors}
-            </p>
-            {/* Venue */}
-            <p class="text-sm text-gray-600">
-              {item.venue}
-            </p>
-            {/* Year */}
-            <p class="text-sm text-gray-600">
-              {item.year}
-            </p>
-          </li>
+      <p class="publication-policy" data-en="Only accepted or published work with a clear graduated project boundary is listed. Incubating and submission-stage work remains off this page." data-zh="本页只列出已正式接收或发表且毕业边界明确的成果；孵化中和投稿阶段工作不列入。">本页只列出已正式接收或发表且毕业边界明确的成果；孵化中和投稿阶段工作不列入。</p>
+
+      <nav class="publication-release-line" aria-label="成果发布线">
+        {years.map((year) => {
+          const count = publications.filter((publication) => publication.year === year).length;
+          return <a href={`#year-${year}`}><span>{year}</span><strong>{count}</strong><small data-en="publications" data-zh="项成果">项成果</small></a>;
+        })}
+      </nav>
+
+      <div class="publication-years">
+        {years.map((year) => (
+          <section id={`year-${year}`} class="publication-year">
+            <div class="publication-year-head">
+              <span>{year}</span>
+              <h2 data-en="Graduated work" data-zh="毕业成果">毕业成果</h2>
+            </div>
+            <div class="publication-list">
+              {publications.filter((publication) => publication.year === year).map((publication) => (
+                <article class="publication-entry">
+                  <div class="publication-meta">{publication.venue}</div>
+                  <div class="publication-copy">
+                    <h3>{publication.name}</h3>
+                    <p><strong>{publication.authors}</strong></p>
+                    <p data-en={publication.summary_en} data-zh={publication.summary_zh}>{publication.summary_zh}</p>
+                    <a href={publication.destination_url}>
+                      <span data-en="Graduated to" data-zh="毕业至">毕业至</span> {publication.destination} ↗
+                    </a>
+                  </div>
+                  <div class={`publication-destination destination-${publication.destination.toLowerCase()}`}>
+                    <span>{publication.destination}</span>
+                    <small data-en={publication.status_en} data-zh={publication.status_zh}>{publication.status_zh}</small>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
         ))}
-      </ul>
-
-      <div class="text-center mt-8">
-        <a
-          href={scholarUrl}
-          target="_blank"
-          rel="noopener"
-          class="btn btn-secondary"
-        >
-          更多
-        </a>
       </div>
     </div>
   </section>
 </Base>
 
+<style>
+  .publication-page{--ink:#101818;--muted:#60706e;--line:#cbd5d1;--paper:#f2f6f3;color:var(--ink)}
+  .publication-hero{display:flex;align-items:end;justify-content:space-between;gap:28px;padding:42px 0 28px;border-bottom:1px solid var(--line)}
+  .publication-hero>div>span{color:#147275;font:700 12px ui-monospace,SFMono-Regular,Menlo,monospace}
+  .publication-hero h1{margin:9px 0 12px;font-size:54px;line-height:1}
+  .publication-hero p{max-width:760px;margin:0;color:var(--muted);font-size:17px}
+  #publication-language-toggle{min-height:40px;padding:8px 14px;border:1px solid var(--ink);border-radius:4px;color:#fff;background:var(--ink);font-weight:800;cursor:pointer}
+  #publication-language-toggle:hover,#publication-language-toggle:focus-visible{color:var(--ink);background:#dfeebf}
+  .publication-policy{margin:24px 0 0;padding:16px 18px;border-left:4px solid #d5a72c;color:var(--muted);background:var(--paper)}
+  .publication-release-line{margin:40px 0 66px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}
+  .publication-release-line a{min-height:118px;padding:20px;display:grid;align-content:center;gap:3px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);color:var(--ink);text-decoration:none}
+  .publication-release-line a:hover{background:var(--paper)}
+  .publication-release-line span{color:var(--muted);font:12px ui-monospace,SFMono-Regular,Menlo,monospace}
+  .publication-release-line strong{font-size:30px}.publication-release-line small{color:var(--muted)}
+  .publication-year{scroll-margin-top:90px}.publication-year+.publication-year{margin-top:78px}
+  .publication-year-head{display:grid;grid-template-columns:150px minmax(0,1fr);gap:28px;align-items:end;margin-bottom:14px}
+  .publication-year-head>span{color:#147275;font:700 22px ui-monospace,SFMono-Regular,Menlo,monospace}
+  .publication-year-head h2{margin:0;font-size:30px}
+  .publication-list{border-bottom:1px solid var(--line)}
+  .publication-entry{display:grid;grid-template-columns:150px minmax(0,1fr) 140px;gap:28px;padding:30px 0;border-top:1px solid var(--line)}
+  .publication-meta{color:var(--muted);font:12px ui-monospace,SFMono-Regular,Menlo,monospace;text-transform:uppercase}
+  .publication-copy h3{margin:0 0 12px;font-size:25px;line-height:1.18}.publication-copy p{margin:8px 0;color:var(--muted)}
+  .publication-copy a{font-weight:800;text-decoration:underline;text-underline-offset:4px}
+  .publication-destination{align-self:start;justify-self:end;min-width:112px;padding:9px;border-radius:3px;display:grid;gap:3px}
+  .publication-destination span{font-weight:850}.publication-destination small{font-size:10px;text-transform:uppercase}
+  .destination-datasys{color:#34560c;background:#dfeebf}.destination-sage{color:#105456;background:#c9e8e7}
+  @media(max-width:720px){.publication-hero{align-items:flex-start;flex-direction:column}.publication-hero h1{font-size:40px}.publication-release-line{grid-template-columns:repeat(2,minmax(0,1fr))}.publication-year-head,.publication-entry{grid-template-columns:1fr}.publication-entry{gap:10px}.publication-destination{justify-self:start}.publication-copy h3{font-size:21px;overflow-wrap:anywhere}}
+</style>
+
+<script is:inline>
+  (() => {
+    const key = "intellistream-publication-language";
+    const button = document.getElementById("publication-language-toggle");
+    const setLanguage = (language) => {
+      const selected = language === "en" ? "en" : "zh";
+      document.documentElement.lang = selected === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll(".publication-page [data-en][data-zh]").forEach((node) => {
+        node.textContent = node.dataset[selected];
+      });
+      button.textContent = selected === "zh" ? "EN" : "中文";
+      button.setAttribute("aria-label", selected === "zh" ? "Switch to English" : "切换为中文");
+      document.querySelector(".publication-release-line").setAttribute("aria-label", selected === "zh" ? "成果发布线" : "Publication timeline");
+      localStorage.setItem(key, selected);
+    };
+    button.addEventListener("click", () => setLanguage(document.documentElement.lang.startsWith("zh") ? "en" : "zh"));
+    setLanguage(localStorage.getItem(key) || "zh");
+  })();
+</script>
