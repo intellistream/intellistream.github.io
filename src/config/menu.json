@@ -1,8 +1,23 @@
 {
   "main": [
     {
-      "name": "SAGE",
-      "url": "https://sage.org.ai/"
+      "name": "Ecosystem",
+      "url": "#",
+      "hasChildren": true,
+      "children": [
+        {
+          "name": "SAGE",
+          "url": "https://sage.org.ai/"
+        },
+        {
+          "name": "DataSys",
+          "url": "https://datasys.sage.org.ai/"
+        },
+        {
+          "name": "vLLM-HUST",
+          "url": "https://github.com/vllm-hust"
+        }
+      ]
     },
     {
       "name": "GitHub",
@@ -26,11 +41,15 @@
           "url": "https://sage.org.ai/"
         },
         {
-          "text": "IntelliStream Team Portal",
-          "url": "https://lab.sage.org.ai/"
+          "text": "DataSys (Data Systems)",
+          "url": "https://datasys.sage.org.ai/"
         },
         {
-          "text": "GitHub Organization",
+          "text": "vLLM-HUST (Runtime + Hardware)",
+          "url": "https://github.com/vllm-hust"
+        },
+        {
+          "text": "IntelliStream Incubator",
           "url": "https://github.com/intellistream"
         }
       ]

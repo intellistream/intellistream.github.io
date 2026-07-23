@@ -1,5 +1,4 @@
 ---
-import config from "@/config/config.json";
 import Base from "@/layouts/Base.astro";
 import { markdownify } from "@/lib/utils/textConverter";
 import type { CollectionEntry } from "astro:content";
@@ -9,7 +8,6 @@ const entry = (await getEntry(
   "contact",
   "-index"
 )) as CollectionEntry<"contact">;
-const { contact_form_action } = config.params;
 const { title, description, info } = entry.data;
 ---
 
@@ -19,42 +17,14 @@ const { title, description, info } = entry.data;
       <h1 class="text-center font-normal" set:html={markdownify(title)} />
       <div class="section row pb-0">
         <div class="col-12 md:col-6 lg:col-7">
-          <form class="contact-form" method="POST" action={contact_form_action}>
-            <div class="mb-3">
-              <input
-                class="form-input w-full rounded"
-                name="name"
-                type="text"
-                placeholder="Name"
-                required
-              />
-            </div>
-            <div class="mb-3">
-              <input
-                class="form-input w-full rounded"
-                name="email"
-                type="email"
-                placeholder="Your email"
-                required
-              />
-            </div>
-            <div class="mb-3">
-              <input
-                class="form-input w-full rounded"
-                name="subject"
-                type="text"
-                placeholder="Subject"
-                required
-              />
-            </div>
-            <div class="mb-3">
-              <textarea
-                class="form-textarea w-full rounded-md"
-                rows="7"
-                placeholder="Your message"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary"> Send Now</button>
-          </form>
+          <h2 class="h3">Research and project inquiries</h2>
+          <p class="mt-4 max-w-xl">
+            For research collaboration, project questions, or academic exchange,
+            contact the IntelliStream team by email.
+          </p>
+          <a class="btn btn-primary mt-6" href="mailto:intellistream@outlook.com">
+            Email IntelliStream
+          </a>
         </div>
         <div class="content col-12 md:col-6 lg:col-5">
           <h4 set:html={markdownify(info?.title)} />
@@ -75,23 +45,4 @@ const { title, description, info } = entry.data;
       </div>
     </div>
   </section>
-  <script is:inline client:load>
-    const form = document.querySelector('.contact-form');
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const data = Object.fromEntries(new FormData(form));
-      try {
-        const res = await fetch(endpoint, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data),
-        });
-        if (res.ok) alert('发送成功');
-        else alert('发送失败');
-      } catch {
-        alert('网络错误');
-      }
-      form.reset();
-    });
-  </script>
 </Base>

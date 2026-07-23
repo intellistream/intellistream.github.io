@@ -16,18 +16,18 @@
   },
   "nav_button": {
     "enable": true,
-    "label": "Open SAGE",
-    "link": "https://sage.org.ai/"
+    "label": "Graduated Projects",
+    "link": "https://github.com/intellistream/.github#graduated-projects"
   },
   "params": {
     "contact_form_action": "/api/contact",
     "tag_manager_id": "",
-    "footer_content": "IntelliStream team and research portal at lab.sage.org.ai. For SAGE product/docs, visit https://sage.org.ai/.",
+    "footer_content": "IntelliStream is the cross-layer research incubator. Mature projects graduate to SAGE, DataSys, or vLLM-HUST according to their long-term technical boundary.",
     "copyright": "Designed and Developed By [Shuhao Zhang](https://shuhaozhangtony.github.io/), thanks to [Themefisher](https://themefisher.com/)."
   },
   "metadata": {
     "meta_author": "IntelliStream",
     "meta_image": "/images/logo.png",
-    "meta_description": "IntelliStream@HUST"
+    "meta_description": "IntelliStream incubates cross-layer systems research across intelligent applications, evolving data infrastructure, and model execution."
   }
 }

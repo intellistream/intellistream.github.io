@@ -11,24 +11,29 @@ const entryPoints = [
   {
     title: "SAGE",
     href: "https://sage.org.ai/",
-    description: "产品首页与文档主入口，适合安装、学习和查阅 API/指南。",
+    description: "Agent、RAG、工作流、评测与服务编排的长期组织。",
   },
   {
-    title: "GitHub Organization",
+    title: "DataSys",
+    href: "https://datasys.sage.org.ai/",
+    description: "流、动态图、向量索引、在线更新、查询与基准系统。",
+  },
+  {
+    title: "vLLM-HUST",
+    href: "https://github.com/vllm-hust",
+    description: "模型运行时、KV/cache 调度、编译、内核与硬件执行。",
+  },
+  {
+    title: "IntelliStream GitHub",
     href: "https://github.com/intellistream",
-    description: "代码仓库、Issue、PR、发布与日常协作入口。",
-  },
-  {
-    title: "Contact",
-    href: "/contact",
-    description: "研究合作、项目咨询、学生交流与团队联系入口。",
+    description: "仍在孵化的研究项目、公开协作与毕业记录。",
   },
 ];
 ---
 
 <Base
-  title="IntelliStream | Team Portal"
-  description="IntelliStream team and research portal for projects, publications, and collaboration."
+  title="IntelliStream | Research Incubator"
+  description="IntelliStream incubates cross-layer systems research and graduates mature projects to SAGE, DataSys, and vLLM-HUST."
 >
   <section class="section pb-0">
     <div class="container">
@@ -91,15 +96,15 @@ const entryPoints = [
   <section class="section bg-light">
     <div class="container">
       <div class="text-center">
-        <h2 class="mb-4">How To Navigate IntelliStream</h2>
+        <h2 class="mb-4">Project Graduation Destinations</h2>
         <p class="mx-auto max-w-[760px]">
-          `lab.sage.org.ai` is the team portal. Use the routes below to move between product docs,
-          code, and collaboration channels without relying on a forced redirect.
+          IntelliStream spans the layers as a research incubator. Mature projects move to the
+          organization that owns their long-term technical boundary.
         </p>
       </div>
       <div class="row mt-8">
         {entryPoints.map((item) => (
-          <div class="col-12 mb-6 md:col-4">
+          <div class="col-12 mb-6 md:col-6 xl:col-3">
             <div class="card h-full">
               <h3 class="h4 mb-3">{item.title}</h3>
               <p>{item.description}</p>
