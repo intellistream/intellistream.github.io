@@ -1,149 +1,113 @@
 ---
 import Base from "@/layouts/Base.astro";
-import { markdownify } from "@/lib/utils/textConverter";
-import type { CollectionEntry } from "astro:content";
-import { getEntry } from "astro:content";
 
-const entry = (await getEntry("homepage", "-index")) as CollectionEntry<"homepage">;
-const { banner, feature, call_to_action } = entry.data;
+const reviewProjects = [
+  { name: "sageVDB", role: "Vector database core", status: "split review", category: "data", href: "https://github.com/intellistream/sageVDB" },
+  { name: "sageTSDB", role: "Time-series data core", status: "split review", category: "data", href: "https://github.com/intellistream/sageTSDB" },
+  { name: "sageData", role: "General data-management core", status: "split review", category: "data", href: "https://github.com/intellistream/sageData" },
+  { name: "sage-anns", role: "Unified ANNS interface", status: "split review", category: "data", href: "https://github.com/intellistream/sage-anns" },
+  { name: "brisksnapshot-ui", role: "Research-system interface", status: "boundary review", category: "interface", href: "https://github.com/intellistream/brisksnapshot-ui" },
+  { name: "harbor", role: "Early public research artifact", status: "clarify", category: "research", href: "https://github.com/intellistream/harbor" },
+  { name: "multicodex", role: "Early public research artifact", status: "clarify", category: "research", href: "https://github.com/intellistream/multicodex" },
+  { name: "OmniBenchmark", role: "Historical benchmark suite", status: "archived", category: "archive", href: "https://github.com/intellistream/OmniBenchmark" },
+];
 
-const entryPoints = [
-  {
-    title: "SAGE",
-    href: "https://sage.org.ai/",
-    description: "Agent、RAG、工作流、评测与服务编排的长期组织。",
-  },
-  {
-    title: "DataSys",
-    href: "https://datasys.sage.org.ai/",
-    description: "流、动态图、向量索引、在线更新、查询与基准系统。",
-  },
-  {
-    title: "vLLM-HUST",
-    href: "https://github.com/vllm-hust",
-    description: "模型运行时、KV/cache 调度、编译、内核与硬件执行。",
-  },
-  {
-    title: "IntelliStream GitHub",
-    href: "https://github.com/intellistream",
-    description: "仍在孵化的研究项目、公开协作与毕业记录。",
-  },
+const destinations = [
+  { index: "01", name: "SAGE", role: "Application + orchestration", detail: "Agents, RAG, workflows, evaluation, studio, and application-level state.", href: "https://sage.org.ai/", accent: "cyan" },
+  { index: "02", name: "DataSys", role: "Evolving data systems", detail: "Streams, dynamic graphs, vectors, indexes, updates, queries, and benchmarks.", href: "https://datasys.sage.org.ai/", accent: "green" },
+  { index: "03", name: "vLLM-HUST", role: "Inference + hardware", detail: "Model runtime, KV/cache scheduling, compilation, kernels, and accelerators.", href: "https://github.com/vllm-hust", accent: "amber" },
 ];
 ---
 
 <Base
   title="IntelliStream | Research Incubator"
   description="IntelliStream incubates cross-layer systems research and graduates mature projects to SAGE, DataSys, and vLLM-HUST."
+  image="/images/ecosystem-infrastructure.png"
 >
-  <section class="section pb-0">
-    <div class="container">
-      <div class="row items-center">
-        <div class="col-12 lg:col-7">
-          {banner?.subtitle && (
-            <p class="mb-3 font-semibold uppercase tracking-wide text-primary">
-              {banner.subtitle}
-            </p>
-          )}
-          {banner?.title && <h1 class="mb-6" set:html={markdownify(banner.title)} />}
-          {banner?.content && (
-            <p class="mb-8 text-lg" set:html={markdownify(banner.content)} />
-          )}
-          <div class="flex flex-wrap gap-4">
-            {banner?.button?.enable && (
-              <a class="btn btn-primary" href={banner.button.link}>
-                {banner.button.label}
-              </a>
-            )}
-            <a class="btn btn-secondary" href="https://github.com/intellistream">
-              View GitHub
-            </a>
-          </div>
+  <script is:inline>document.body.classList.add("ecosystem-home");</script>
+  <div class="incubator-home">
+    <section class="portal-hero" aria-labelledby="page-title">
+      <img class="portal-hero-media" src="/images/ecosystem-infrastructure.png" alt="" width="1944" height="809" />
+      <div class="portal-hero-shade"></div>
+      <div class="portal-hero-copy">
+        <p class="portal-signal"><span></span> Intelligent systems ecosystem / 00</p>
+        <h1 id="page-title">IntelliStream</h1>
+        <p class="portal-kicker">Where systems research earns its boundary.</p>
+        <p class="portal-summary">A cross-layer incubator for ideas that are still discovering their public abstraction, maintainers, evaluation path, and durable technical home.</p>
+        <div class="portal-actions">
+          <a class="portal-button primary" href="#pipeline">See the graduation path <span aria-hidden="true">↓</span></a>
+          <a class="portal-button quiet" href="https://github.com/intellistream">Open GitHub <span aria-hidden="true">↗</span></a>
         </div>
-        {banner?.image && (
-          <div class="col-12 mt-10 lg:col-5 lg:mt-0">
-            <img
-              src={banner.image}
-              alt="IntelliStream overview"
-              class="mx-auto w-full max-w-[480px]"
-            />
-          </div>
-        )}
       </div>
-    </div>
-  </section>
+      <dl class="portal-metrics" aria-label="Incubator overview">
+        <div><dt>03</dt><dd>destinations</dd></div>
+        <div><dt>04</dt><dd>graduation gates</dd></div>
+        <div><dt>∞</dt><dd>cross-layer ideas</dd></div>
+      </dl>
+    </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="text-center">
-        <h2 class="mb-4" set:html={markdownify(feature.title)} />
-      </div>
-      <div class="row mt-8">
-        {feature.features.map((item) => (
-          <div class="col-12 mb-6 md:col-6 xl:col-4">
-            <div class="feature-card card h-full">
-              {item.icon && (
-                <img src={item.icon} alt="" class="mb-5 h-12 w-12" />
-              )}
-              <h3 class="h4 mb-3">{item.name}</h3>
-              {item.content && <p class="mb-0">{item.content}</p>}
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
+    <section class="portal-scope" aria-label="Incubator scope">
+      <span data-code="01">State-aware orchestration</span>
+      <span data-code="02">Inference-state management</span>
+      <span data-code="03">Hardware-aware inference</span>
+      <span data-code="04">Open systems research</span>
+    </section>
 
-  <section class="section bg-light">
-    <div class="container">
-      <div class="text-center">
-        <h2 class="mb-4">Project Graduation Destinations</h2>
-        <p class="mx-auto max-w-[760px]">
-          IntelliStream spans the layers as a research incubator. Mature projects move to the
-          organization that owns their long-term technical boundary.
-        </p>
+    <section class="portal-section portal-dark" id="pipeline">
+      <div class="portal-section-head">
+        <div><p class="portal-eyebrow">Incubation protocol</p><h2>Explore broadly. Graduate deliberately.</h2></div>
+        <p>IntelliStream is not a fourth runtime layer. It is the side rail that lets early work cross layers before ownership becomes stable.</p>
       </div>
-      <div class="row mt-8">
-        {entryPoints.map((item) => (
-          <div class="col-12 mb-6 md:col-6 xl:col-3">
-            <div class="card h-full">
-              <h3 class="h4 mb-3">{item.title}</h3>
-              <p>{item.description}</p>
-              <a class="btn btn-secondary mt-4" href={item.href}>
-                Open
-              </a>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  {call_to_action && (
-    <section class="section">
-      <div class="container">
-        <div class="row items-center">
-          <div class="col-12 lg:col-7">
-            {call_to_action.title && (
-              <h2 class="mb-4" set:html={markdownify(call_to_action.title)} />
-            )}
-            {call_to_action.content && (
-              <div class="content mb-6" set:html={markdownify(call_to_action.content)} />
-            )}
-            {call_to_action.button?.enable && (
-              <a class="btn btn-primary" href={call_to_action.button.link}>
-                {call_to_action.button.label}
-              </a>
-            )}
-          </div>
-          <div class="col-12 mt-10 lg:col-5 lg:mt-0">
-            <img
-              src={call_to_action.image}
-              alt="IntelliStream collaboration"
-              class="mx-auto w-full max-w-[420px]"
-            />
-          </div>
-        </div>
+      <div class="stage-grid">
+        <article><span>01 / EXPLORE</span><strong>Research question</strong><p>Validate the problem, collaborators, and cross-layer opportunity.</p></article>
+        <article><span>02 / STABILIZE</span><strong>Public abstraction</strong><p>Name the boundary, maintainers, interfaces, and evaluation contract.</p></article>
+        <article><span>03 / VERIFY</span><strong>Reproducible path</strong><p>Document setup, tests, licensing, releases, and sustainable ownership.</p></article>
+        <article><span>04 / GRADUATE</span><strong>Durable home</strong><p>Move to SAGE, DataSys, or vLLM-HUST according to technical scope.</p></article>
       </div>
     </section>
-  )}
+
+    <section class="portal-section destinations">
+      <div class="portal-section-head">
+        <div><p class="portal-eyebrow">Graduation destinations</p><h2>Three mature organizations.</h2></div>
+        <p>The destinations form a layered intelligent-systems ecosystem. Research directions remain cross-cutting overlays.</p>
+      </div>
+      <div class="destination-grid">
+        {destinations.map((item) => (
+          <a class={`destination ${item.accent}`} href={item.href}>
+            <span>{item.index}</span><small>{item.role}</small><h3>{item.name}</h3><p>{item.detail}</p><em>Open destination ↗</em>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="portal-section public-review" id="review">
+      <div class="portal-section-head">
+        <div><p class="portal-eyebrow">Public boundary review</p><h2>Visible work still in formation.</h2></div>
+        <p>These repositories are intentionally not treated as graduated products. Status labels describe the next ownership decision.</p>
+      </div>
+      <div class="review-list">
+        {reviewProjects.map((project) => (
+          <a class="review-row" href={project.href}>
+            <span class="review-name">{project.name}</span>
+            <span class="review-role">{project.role}</span>
+            <span class={`review-status status-${project.status.replace(" ", "-")}`}>{project.status}</span>
+            <span class="review-arrow">↗</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="portal-section portal-architecture" id="ecosystem">
+      <div class="portal-section-head">
+        <div><p class="portal-eyebrow">Shared architecture</p><h2>Incubation spans every layer.</h2></div>
+        <p>Graduation arrows point outward. IntelliStream does not keep writable mirrors of projects after they move.</p>
+      </div>
+      <div class="architecture-grid">
+        <a class="active" href="#page-title"><span>00</span><strong>IntelliStream</strong><small>Cross-layer research incubator</small></a>
+        <a href="https://sage.org.ai/"><span>01</span><strong>SAGE</strong><small>Applications, agents, RAG, workflows</small></a>
+        <a href="https://datasys.sage.org.ai/"><span>02</span><strong>DataSys</strong><small>Streams, graphs, vectors, indexes</small></a>
+        <a href="https://github.com/vllm-hust"><span>03</span><strong>vLLM-HUST</strong><small>Runtime, scheduling, kernels, hardware</small></a>
+      </div>
+    </section>
+  </div>
 </Base>
