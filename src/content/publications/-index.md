@@ -54,13 +54,13 @@ publications:
     year: 2026
     destination: "DataSys"
     destination_url: "https://datasys.sage.org.ai/achievements.html"
-    status_en: "Published"
-    status_zh: "已发表"
+    status_en: "Accepted"
+    status_zh: "已接收"
     summary_en: "Property-guided reservation and rebalancing reduce reconstruction cost in dynamic graph systems."
     summary_zh: "通过属性引导的预留与重平衡降低动态图系统的重构开销。"
 
   - name: "CANDOR-Bench: Benchmarking In-Memory Continuous ANNS under Dynamic Open-World Streams"
-    authors: "Mingqi Wang, Jun Liu, Ruicheng Zhang, Jianjun Zhao, Ruipeng Wan, Xinyan Lei, Shuhao Zhang, Bolong Zheng, Haikun Liu, Xiaofei Liao, Hai Jin"
+    authors: "Mingqi Wang, Junyao Dong, Zhuoyan Wu, Jun Liu, Ruicheng Zhang, Jianjun Zhao, Ruipeng Wan, Xinyan Lei, Shuhao Zhang, Bolong Zheng, Haikun Liu, Xiaofei Liao, Hai Jin"
     venue: "SIGMOD 2026"
     year: 2026
     destination: "DataSys"
@@ -124,6 +124,39 @@ publications:
     status_zh: "已发表"
     summary_en: "An empirical study and benchmark suite for approximate matrix multiplication."
     summary_zh: "面向近似矩阵乘的实证研究与基准套件。"
+
+  - name: "A Survey on Transactional Stream Processing"
+    authors: "Shuhao Zhang, Juan Soto, Volker Markl"
+    venue: "VLDB Journal 2024"
+    year: 2024
+    destination: "DataSys"
+    destination_url: "https://datasys.sage.org.ai/achievements.html"
+    status_en: "Published"
+    status_zh: "已发表"
+    summary_en: "A taxonomy of transactional stream-processing requirements, models, system designs, and open challenges."
+    summary_zh: "系统梳理事务流处理的需求、模型、系统设计与开放问题。"
+
+  - name: "Fast Parallel Recovery for Transactional Stream Processing on Multicores"
+    authors: "Jianjun Zhao, Haikun Liu, Shuhao Zhang, Zhuohui Duan, Xiaofei Liao, Hai Jin, Yu Zhang"
+    venue: "ICDE 2024"
+    year: 2024
+    destination: "DataSys"
+    destination_url: "https://datasys.sage.org.ai/achievements.html"
+    status_en: "Published"
+    status_zh: "已发表"
+    summary_en: "Parallel recovery for restoring transactional stream-processing state efficiently on multicore systems."
+    summary_zh: "面向多核事务流处理系统的高效并行状态恢复。"
+
+  - name: "Enabling Adaptive Sampling for Intra-Window Join: Simultaneously Optimizing Quantity and Quality"
+    authors: "Xilin Tang, Feng Zhang, Shuhao Zhang, Yani Liu, Bingsheng He, Xiaoyong Du"
+    venue: "PACMMOD 2024 / SIGMOD 2025"
+    year: 2024
+    destination: "DataSys"
+    destination_url: "https://datasys.sage.org.ai/achievements.html"
+    status_en: "Published"
+    status_zh: "已发表"
+    summary_en: "Adaptive sampling for intra-window joins that jointly optimizes sample quantity and result quality."
+    summary_zh: "同时优化采样数量与结果质量的窗口内连接自适应采样方法。"
 
   - name: "MOStream: A Modular and Self-Optimizing Data Stream Clustering Algorithm"
     authors: "Zhengru Wang, Xin Wang, Shuhao Zhang"
@@ -190,4 +223,70 @@ publications:
     status_zh: "已发表"
     summary_en: "Fine-grained decomposition and asymmetry-aware scheduling for energy-efficient stream compression."
     summary_zh: "通过细粒度分解与非对称感知调度实现高能效流压缩。"
+
+  - name: "Scalable Online Interval Join on Modern Multicore Processors in OpenMLDB"
+    authors: "Hao Zhang, Xianzhi Zeng, Shuhao Zhang, Xinyi Liu, Mian Lu, Zhao Zheng"
+    venue: "ICDE 2023"
+    year: 2023
+    destination: "DataSys"
+    destination_url: "https://datasys.sage.org.ai/achievements.html"
+    status_en: "Published"
+    status_zh: "已发表"
+    summary_en: "A scalable online interval-join design and multicore evaluation in OpenMLDB."
+    summary_zh: "面向 OpenMLDB 的可扩展在线区间连接设计与多核评测。"
+
+  - name: "A Hardware-Conscious Stateful Stream Compression Framework for IoT Applications (Vision)"
+    authors: "Xianzhi Zeng, Shuhao Zhang"
+    venue: "DEBS 2023"
+    year: 2023
+    destination: "DataSys"
+    destination_url: "https://datasys.sage.org.ai/achievements.html"
+    status_en: "Published vision paper"
+    status_zh: "已发表愿景论文"
+    summary_en: "A vision for hardware-conscious stateful stream compression across IoT devices and workloads."
+    summary_zh: "面向 IoT 设备与工作负载的硬件感知有状态流压缩框架愿景。"
+
+  - name: "Parallelizing Intra-Window Join on Multicores: An Experimental Study"
+    authors: "Shuhao Zhang, Yancan Mao, Jiong He, Philipp M. Grulich, Steffen Zeuch, Bingsheng He, Richard T. B. Ma, Volker Markl"
+    venue: "SIGMOD 2021"
+    year: 2021
+    destination: "DataSys"
+    destination_url: "https://datasys.sage.org.ai/achievements.html"
+    status_en: "Published"
+    status_zh: "已发表"
+    summary_en: "An experimental study of parallel intra-window joins on multicore hardware."
+    summary_zh: "面向多核硬件的并行窗口内连接实验研究。"
+
+  - name: "Towards Concurrent Stateful Stream Processing on Multicore Processors"
+    authors: "Shuhao Zhang, Yingjun Wu, Feng Zhang, Bingsheng He"
+    venue: "ICDE 2020"
+    year: 2020
+    destination: "DataSys"
+    destination_url: "https://datasys.sage.org.ai/achievements.html"
+    status_en: "Published"
+    status_zh: "已发表"
+    summary_en: "TStream introduces scalable concurrent state access for transactional stream processing."
+    summary_zh: "TStream 为事务流处理引入可扩展的并发状态访问。"
+
+  - name: "BriskStream: Scaling Data Stream Processing on Shared-Memory Multicore Architectures"
+    authors: "Shuhao Zhang, Jiong He, Amelie Chi Zhou, Bingsheng He"
+    venue: "SIGMOD 2019"
+    year: 2019
+    destination: "DataSys"
+    destination_url: "https://datasys.sage.org.ai/achievements.html"
+    status_en: "Published"
+    status_zh: "已发表"
+    summary_en: "NUMA-aware execution-plan optimization for stream processing on shared-memory multicores."
+    summary_zh: "面向共享内存多核架构的 NUMA 感知流处理执行计划优化。"
+
+  - name: "Revisiting the Design of Data Stream Processing Systems on Multi-Core Processors"
+    authors: "Shuhao Zhang, Bingsheng He, Daniel Dahlmeier, Amelie Chi Zhou, Thomas Heinze"
+    venue: "ICDE 2017"
+    year: 2017
+    destination: "DataSys"
+    destination_url: "https://datasys.sage.org.ai/achievements.html"
+    status_en: "Published"
+    status_zh: "已发表"
+    summary_en: "A hardware-conscious study of stream-processing bottlenecks on scale-up multicore servers."
+    summary_zh: "研究扩展型多核服务器上的流处理系统瓶颈。"
 ---
