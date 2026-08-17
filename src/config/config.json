@@ -22,7 +22,7 @@
   "params": {
     "contact_form_action": "/api/contact",
     "tag_manager_id": "",
-    "footer_content": "IntelliStream is the cross-layer research incubator. Mature projects graduate to SAGE, DataSys, or vLLM-HUST according to their long-term technical boundary.",
+    "footer_content": "IntelliStream is the cross-layer research incubator. Mature projects graduate to RIDE Lab, DataSys, or vLLM-HUST; SAGE is their shared flagship product.",
     "copyright": "Designed and Developed By [Shuhao Zhang](https://shuhaozhangtony.github.io/), thanks to [Themefisher](https://themefisher.com/)."
   },
   "metadata": {

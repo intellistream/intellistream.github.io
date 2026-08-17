@@ -147,7 +147,7 @@ const publicationsCollection = defineCollection({
         venue:   z.string(),
         year:    z.number(),
         link:    z.string().url().optional(),
-        destination: z.enum(["DataSys", "SAGE"]),
+        destination: z.enum(["DataSys", "RIDE Lab"]),
         destination_url: z.string().url(),
         status_en: z.string(),
         status_zh: z.string(),

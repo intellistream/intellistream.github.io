@@ -13,7 +13,7 @@ const reviewProjects = [
 ];
 
 const destinations = [
-  { index: "01", name: "SAGE", role: "Application + orchestration", detail: "Agents, RAG, workflows, evaluation, studio, and application-level state.", href: "https://sage.org.ai/", accent: "cyan" },
+  { index: "01", name: "RIDE Lab", role: "Agent-native systems", detail: "Agent systems research and stewardship of the shared SAGE core.", href: "https://ride-lab.github.io/", accent: "cyan" },
   { index: "02", name: "DataSys", role: "Evolving data systems", detail: "Streams, dynamic graphs, vectors, indexes, updates, queries, and benchmarks.", href: "https://datasys.sage.org.ai/", accent: "green" },
   { index: "03", name: "vLLM-HUST", role: "Inference + hardware", detail: "Model runtime, KV/cache scheduling, compilation, kernels, and accelerators.", href: "https://vllm-hust.sage.org.ai/", accent: "amber" },
 ];
@@ -21,7 +21,7 @@ const destinations = [
 
 <Base
   title="IntelliStream | Research Incubator"
-  description="IntelliStream incubates cross-layer systems research and graduates mature projects to SAGE, DataSys, and vLLM-HUST."
+  description="IntelliStream incubates cross-layer systems research and graduates mature projects to RIDE Lab, DataSys, and vLLM-HUST."
   image="/images/ecosystem-infrastructure.png"
 >
   <script is:inline>document.body.classList.add("ecosystem-home");</script>
@@ -62,8 +62,22 @@ const destinations = [
         <article><span>01 / EXPLORE</span><strong>Research question</strong><p>Validate the problem, collaborators, and cross-layer opportunity.</p></article>
         <article><span>02 / STABILIZE</span><strong>Public abstraction</strong><p>Name the boundary, maintainers, interfaces, and evaluation contract.</p></article>
         <article><span>03 / VERIFY</span><strong>Reproducible path</strong><p>Document setup, tests, licensing, releases, and sustainable ownership.</p></article>
-        <article><span>04 / GRADUATE</span><strong>Durable home</strong><p>Move to SAGE, DataSys, or vLLM-HUST according to technical scope.</p></article>
+        <article><span>04 / GRADUATE</span><strong>Durable home</strong><p>Move to RIDE Lab, DataSys, or vLLM-HUST according to technical scope.</p></article>
       </div>
+    </section>
+
+    <section class="portal-section portal-dark" id="sage">
+      <div class="portal-section-head">
+        <div><p class="portal-eyebrow">Shared flagship product</p><h2>SAGE connects the ecosystem.</h2></div>
+        <p>Streaming-Augmented Generative Execution applies streaming-computing principles to LLM inference and agent execution. RIDE Lab stewards the core; DataSys and vLLM-HUST retain their own data-system and inference boundaries.</p>
+      </div>
+      <div class="stage-grid">
+        <article><span>01 / VISION</span><strong>Stream-first execution</strong><p>Make dataflow, state, backpressure, and continuous execution explicit.</p></article>
+        <article><span>02 / STEWARD</span><strong>RIDE Lab</strong><p>Maintains the SAGE core repositories and agent-facing product surfaces.</p></article>
+        <article><span>03 / DATA</span><strong>DataSys</strong><p>Owns framework-neutral stream, graph, vector, index, and evolving-data systems.</p></article>
+        <article><span>04 / INFER</span><strong>vLLM-HUST</strong><p>Owns model execution, scheduling, compilation, kernels, and hardware backends.</p></article>
+      </div>
+      <div class="portal-actions"><a class="portal-button primary" href="https://sage.org.ai/">Open SAGE <span aria-hidden="true">↗</span></a></div>
     </section>
 
     <section class="portal-section destinations">
@@ -104,7 +118,7 @@ const destinations = [
       </div>
       <div class="architecture-grid">
         <a class="active" href="#page-title"><span>00</span><strong>IntelliStream</strong><small>Cross-layer research incubator</small></a>
-        <a href="https://sage.org.ai/"><span>01</span><strong>SAGE</strong><small>Applications, agents, RAG, workflows</small></a>
+        <a href="https://ride-lab.github.io/"><span>01</span><strong>RIDE Lab</strong><small>Agent systems and SAGE core stewardship</small></a>
         <a href="https://datasys.sage.org.ai/"><span>02</span><strong>DataSys</strong><small>Streams, graphs, vectors, indexes</small></a>
         <a href="https://vllm-hust.sage.org.ai/"><span>03</span><strong>vLLM-HUST</strong><small>Runtime, scheduling, kernels, hardware</small></a>
       </div>

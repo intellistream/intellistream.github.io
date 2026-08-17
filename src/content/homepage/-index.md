@@ -3,7 +3,7 @@ banner:
   enable: true
   title: "IntelliStream"
   subtitle: "Research Incubator"
-  content: "IntelliStream 孵化跨越智能应用、演化数据基础设施与模型执行的早期系统研究。边界、维护者、文档、测试与发布流程稳定后，项目毕业到 [SAGE](https://sage.org.ai/)、[DataSys](https://datasys.sage.org.ai/) 或 [vLLM-HUST](https://vllm-hust.sage.org.ai/)。"
+  content: "IntelliStream 孵化跨越智能应用、演化数据基础设施与模型执行的早期系统研究。边界、维护者、文档、测试与发布流程稳定后，项目毕业到 [RIDE Lab](https://ride-lab.github.io/)、[DataSys](https://datasys.sage.org.ai/) 或 [vLLM-HUST](https://vllm-hust.sage.org.ai/)。SAGE 是这些组织共同建设的旗舰产品。"
   image: "/images/banner-art.png"
   button:
     enable: true
@@ -19,7 +19,7 @@ feature:
       content: "在公开抽象、维护责任与可复现路径尚未稳定时提供跨层孵化环境，成熟后进入长期技术组织。"
     - name: "Agent 与服务编排"
       icon: "/images/user-clock.svg"
-      content: "研究 Agent、RAG、工作流、评测与应用级状态语义；成熟能力由 SAGE 长期维护。"
+      content: "研究 Agent、RAG、工作流、评测与应用级状态语义；成熟能力进入 RIDE Lab，由其负责 SAGE 核心仓库的主要维护。"
     - name: "演化数据系统"
       icon: "/images/code.svg"
       content: "研究流、动态图、向量索引、在线更新、查询与数据生命周期；成熟系统毕业到 DataSys。"
@@ -37,7 +37,7 @@ feature:
 # call_to_action
 call_to_action:
   title: 在正确的层继续工作
-  content: "Agent、RAG 与服务编排请进入 [SAGE](https://sage.org.ai/)；流、图、向量与索引系统请进入 [DataSys](https://datasys.sage.org.ai/)；模型运行时与硬件执行请进入 [vLLM-HUST](https://vllm-hust.sage.org.ai/)。仍在形成边界的研究项目保留在 [IntelliStream GitHub](https://github.com/intellistream)。"
+  content: "Agent-native 系统与 SAGE 核心维护请进入 [RIDE Lab](https://ride-lab.github.io/)；流、图、向量与索引系统请进入 [DataSys](https://datasys.sage.org.ai/)；模型运行时与硬件执行请进入 [vLLM-HUST](https://vllm-hust.sage.org.ai/)。共同旗舰产品入口位于 [SAGE](https://sage.org.ai/)；仍在形成边界的研究项目保留在 [IntelliStream GitHub](https://github.com/intellistream)。"
   image: "/images/cta.png"
   button:
     enable: true

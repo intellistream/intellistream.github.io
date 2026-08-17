@@ -8,7 +8,7 @@ publications:
     authors: "Jun Liu, Peilin Liu, Ruicheng Zhang, Senlei Zhang, Yanbo Chen, Ziao Wang, Jinyun Yang, Mingqi Wang, Shuhao Zhang, Xiaofei Liao, Hai Jin"
     venue: "ICML 2026"
     year: 2026
-    destination: "SAGE"
+    destination: "RIDE Lab"
     destination_url: "https://sage.org.ai/achievements/"
     status_en: "Published"
     status_zh: "已发表"
@@ -19,7 +19,7 @@ publications:
     authors: "Ruicheng Zhang, Xinyi Li, Tianyi Xu, Shuhao Zhang, Xiaofei Liao, Hai Jin"
     venue: "ICML 2026"
     year: 2026
-    destination: "SAGE"
+    destination: "RIDE Lab"
     destination_url: "https://sage.org.ai/achievements/"
     status_en: "Published"
     status_zh: "已发表"
@@ -30,7 +30,7 @@ publications:
     authors: "Senlei Zhang, Tongjun Shi, Dandan Song, Luan Zhang, Shuhao Zhang, Xiaofei Liao, Hai Jin"
     venue: "WWW 2026"
     year: 2026
-    destination: "SAGE"
+    destination: "RIDE Lab"
     destination_url: "https://sage.org.ai/achievements/"
     status_en: "Published"
     status_zh: "已发表"
