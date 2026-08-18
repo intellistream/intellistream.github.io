@@ -1,0 +1,41 @@
+---
+import Base from "@/layouts/Base.astro";
+---
+
+<Base title="Members | IntelliStream" description="Verified IntelliStream organization members and their public GitHub profiles.">
+  <div class="member-page">
+    <section class="member-page-hero" aria-labelledby="members-title">
+      <div class="member-page-hero-copy">
+        <p class="portal-signal"><span></span><span data-en="Research incubator / people" data-zh="研究孵化器 / 成员">Research incubator / people</span></p>
+        <h1 id="members-title" data-en="Members" data-zh="成员">Members</h1>
+        <p data-en="The people who explore cross-layer questions, stabilize research boundaries, and help projects graduate into durable technical homes." data-zh="共同探索跨层问题、稳定研究边界，并推动课题进入长期技术归属的成员。">The people who explore cross-layer questions, stabilize research boundaries, and help projects graduate into durable technical homes.</p>
+      </div>
+    </section>
+
+    <section class="member-directory" data-member-directory data-source="/data/members.json">
+      <div class="member-directory-head">
+        <div><p class="portal-eyebrow" data-en="Verified organization roster" data-zh="已核验组织名录">Verified organization roster</p><h2 data-en="People behind the incubator." data-zh="孵化器背后的建设者。">People behind the incubator.</h2><p data-en="Affiliation is verified against the GitHub organization roster. Cards contain public profile information only; repository contributors remain credited separately." data-zh="成员归属依据 GitHub 组织名录核验；卡片仅展示公开资料，仓库外部贡献者仍在各项目中单独致谢。">Affiliation is verified against the GitHub organization roster. Cards contain public profile information only; repository contributors remain credited separately.</p></div>
+        <label><span class="sr-only" data-en="Search members" data-zh="搜索成员">Search members</span><input class="member-search" data-member-search type="search" placeholder="Search name, GitHub, or bio" data-en-placeholder="Search name, GitHub, or bio" data-zh-placeholder="按姓名、GitHub 或简介搜索"></label>
+      </div>
+      <p class="member-status" data-member-status aria-live="polite">Loading members…</p>
+      <div class="member-grid" data-member-grid></div>
+      <p class="member-empty" data-member-empty hidden></p>
+      <noscript><p class="member-empty">JavaScript is required to render the verified member directory. <a href="https://github.com/orgs/intellistream/people">Open GitHub people ↗</a></p></noscript>
+    </section>
+  </div>
+  <script is:inline src="/scripts/members.js"></script>
+  <script is:inline>
+    (() => {
+      const key = "intellistream-member-language";
+      const apply = (language) => {
+        const selected = language === "zh" ? "zh" : "en";
+        document.documentElement.lang = selected === "zh" ? "zh-CN" : "en";
+        document.title = selected === "zh" ? "成员｜IntelliStream" : "Members | IntelliStream";
+        document.querySelectorAll(".member-page [data-en][data-zh]").forEach((node) => { node.textContent = node.dataset[selected]; });
+        document.querySelectorAll("[data-en-placeholder][data-zh-placeholder]").forEach((node) => { node.placeholder = node.dataset[selected + "Placeholder"]; });
+        try { localStorage.setItem(key, selected); } catch (_) {}
+      };
+      apply(localStorage.getItem(key) || (navigator.language.toLowerCase().startsWith("zh") ? "zh" : "en"));
+    })();
+  </script>
+</Base>
